@@ -68,16 +68,17 @@ const SPREADS: PageSpread[] = [
           Spring's Promise
         </h3>
         <p className="text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-relaxed mb-6 italic">
-          The month of April feels like a dive into the unknown, a pleasant
-          surprise that starts with an unexpected encounter.
-        </p>
-        <p className="text-base sm:text-lg md:text-xl font-serif text-rose-600 leading-loose">
           Spring Flower&apos;s Bloom.
           <br />
           Hope in motion.
           <br />
           Tomorrow arriving Early
         </p>
+        <p className="text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-relaxed mb-6 italic">
+          The month of April feels like a dive into the unknown, a pleasant
+          surprise that starts with an unexpected encounter.
+        </p>
+        
         <div className="w-12 h-px bg-pink-300 my-6" />
       </div>
     ),
