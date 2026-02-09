@@ -16,12 +16,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-
   "bugs": {
     "url": "https://github.com/davidnso-codex/a-small-project/issues"
   },
   "homepage": "https://github.com/davidnso-codex/a-small-project#readme",
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
     "next": "^16.1.6",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
