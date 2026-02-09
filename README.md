@@ -37,7 +37,7 @@ npm install
 
 3. Replace the placeholder image:
    - Add your couple photo to the `public` folder as `couple-photo.jpg` or `couple-photo.png`
-   - Update the image path in `app/page.tsx` (line 42) to match your image filename
+   - Update the image path in `app/page.tsx` (line 36) to match your image filename
 
 4. Run the development server:
 ```bash
@@ -81,9 +81,9 @@ Edit the colors in `app/page.tsx` to customize the pink theme:
 ### Edit Messages
 
 Update the text in `app/page.tsx`:
-- Line 51-52: Main question text
-- Lines 70-78: "Yes" response message
-- Lines 83-88: "No" response message
+- Lines 47-51: Main question text
+- Lines 73-86: "Yes" response message
+- Lines 88-105: "No" response message
 
 ## Building for Production 🏗️
 
