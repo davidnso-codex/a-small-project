@@ -89,7 +89,7 @@ const SPREADS: PageSpread[] = [
     left: (
       <div className="flex flex-col justify-center h-full px-6 sm:px-10">
         <h3 className="text-lg sm:text-xl md:text-2xl font-serif text-rose-600 italic mb-6">
-          Day Zero
+          Your Name
         </h3>
         <p className="text-base sm:text-lg md:text-xl font-elegant text-rose-700 leading-relaxed mb-4">
           You&apos;re here!
@@ -129,8 +129,8 @@ const SPREADS: PageSpread[] = [
           <br />
           I&apos;ll start by saying your name—
         </p>
-        <p className="text-xl sm:text-2xl md:text-3xl font-elegant text-rose-600 mt-4">
-          Bianca.
+        <p className="text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-loose">
+          <strong>Bianca.</strong>
         </p>
       </div>
     ),
