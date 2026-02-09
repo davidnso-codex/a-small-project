@@ -1,11 +1,25 @@
 @import "tailwindcss";
 
 @layer utilities {
-  /* Fade in animations */
-  @keyframes fadeInDown {
+  /* Splash image zoom effect */
+  @keyframes splashZoom {
+    from {
+      transform: scale(1.15);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  .splash-zoom {
+    animation: splashZoom 3s ease-out forwards;
+  }
+
+  /* Question text reveal */
+  @keyframes questionReveal {
     from {
       opacity: 0;
-      transform: translateY(-50px);
+      transform: translateY(40px);
     }
     to {
       opacity: 1;
@@ -13,10 +27,15 @@
     }
   }
 
-  @keyframes fadeInUp {
+  .question-reveal {
+    animation: questionReveal 1s ease-out forwards;
+  }
+
+  /* Buttons reveal with stagger */
+  @keyframes buttonsReveal {
     from {
       opacity: 0;
-      transform: translateY(50px);
+      transform: translateY(20px);
     }
     to {
       opacity: 1;
@@ -24,7 +43,72 @@
     }
   }
 
-  @keyframes fadeIn {
+  .buttons-reveal {
+    opacity: 0;
+    animation: buttonsReveal 0.8s ease-out 0.5s forwards;
+  }
+
+  /* Response reveal */
+  @keyframes responseReveal {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .response-reveal {
+    animation: responseReveal 0.8s ease-out forwards;
+  }
+
+  /* Floating hearts */
+  @keyframes heartFloat {
+    0% {
+      opacity: 0;
+      transform: translateY(100vh) rotate(0deg);
+    }
+    10% {
+      opacity: 0.6;
+    }
+    90% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-20vh) rotate(720deg);
+    }
+  }
+
+  .heart-float {
+    opacity: 0;
+    animation: heartFloat 8s ease-in-out infinite;
+  }
+
+  /* Hearts cascade on yes */
+  @keyframes heartsCascade {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .hearts-cascade {
+    animation: heartsCascade 1s ease-out forwards;
+  }
+
+  /* Card screen entrance */
+  @keyframes cardScreenEnter {
     from {
       opacity: 0;
     }
@@ -33,29 +117,276 @@
     }
   }
 
-  .animate-fade-in-down {
-    animation: fadeInDown 1s ease-out;
+  .card-screen-enter {
+    animation: cardScreenEnter 1s ease-out forwards;
   }
 
-  .animate-fade-in-up {
-    animation: fadeInUp 1s ease-out;
+  /* ========================= */
+  /*   3D Book-Open Card       */
+  /* ========================= */
+
+  .card-scene {
+    perspective: 1800px;
+    width: 90vw;
+    max-width: 640px;
+    aspect-ratio: 3 / 2;
+    position: relative;
   }
 
-  .animate-fade-in {
-    animation: fadeIn 0.8s ease-out;
+  .card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
   }
 
-  /* Animation delays */
-  .animation-delay-300 {
-    animation-delay: 300ms;
+  /* Shared face styles */
+  .card-back,
+  .card-inside-left,
+  .card-front {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    backface-visibility: hidden;
   }
 
-  .animation-delay-600 {
-    animation-delay: 600ms;
+  /* Right page (back of card — always visible) */
+  .card-back {
+    right: 0;
+    width: 50%;
+    border-radius: 0 0.75rem 0.75rem 0;
+    overflow: hidden;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3);
   }
 
-  .animation-delay-900 {
-    animation-delay: 900ms;
+  /* Left inside page (revealed when cover opens) */
+  .card-inside-left {
+    left: 0;
+    width: 50%;
+    border-radius: 0.75rem 0 0 0.75rem;
+    overflow: hidden;
+    box-shadow: -4px 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Front cover — hinged on the left center edge */
+  .card-front {
+    right: 0;
+    width: 50%;
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    transition: transform 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+    cursor: pointer;
+  }
+
+  .card-open .card-front {
+    transform: rotateY(-180deg);
+  }
+
+  /* Outside of the front cover */
+  .card-front-outside {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 0 0.75rem 0.75rem 0;
+    overflow: hidden;
+    box-shadow: 6px 6px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Inside of the front cover (faces right when flipped) */
+  .card-front-inside {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    border-radius: 0.75rem 0 0 0.75rem;
+    overflow: hidden;
+  }
+
+  /* Content reveal inside the card */
+  @keyframes insideContentReveal {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .inside-left-content {
+    animation: insideContentReveal 0.8s ease-out forwards;
+  }
+
+  .inside-right-content {
+    animation: insideContentReveal 0.8s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+
+  /* ========================= */
+  /*   Book Viewer             */
+  /* ========================= */
+
+  .book-viewer {
+    width: 92vw;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+  }
+
+  .book-spread {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    display: flex;
+    border-radius: 0.5rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+  }
+
+  .book-page {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+
+  .book-page-left {
+    border-radius: 0.5rem 0 0 0.5rem;
+  }
+
+  .book-page-right {
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+
+  /* Subtle scroll styling */
+  .book-page::-webkit-scrollbar {
+    width: 3px;
+  }
+  .book-page::-webkit-scrollbar-thumb {
+    background: rgba(244, 63, 94, 0.2);
+    border-radius: 3px;
+  }
+
+  /* ========================= */
+  /*   Simple Page Transitions  */
+  /* ========================= */
+
+  .book-flip-next {
+    animation: spreadFadeNext 0.6s ease-in-out;
+  }
+
+  .book-flip-prev {
+    animation: spreadFadePrev 0.6s ease-in-out;
+  }
+
+  @keyframes spreadFadeNext {
+    0% { opacity: 1; transform: translateX(0); }
+    50% { opacity: 0; transform: translateX(-20px); }
+    50.01% { opacity: 0; transform: translateX(20px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes spreadFadePrev {
+    0% { opacity: 1; transform: translateX(0); }
+    50% { opacity: 0; transform: translateX(20px); }
+    50.01% { opacity: 0; transform: translateX(-20px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+
+  /* ========================= */
+  /*   Mobile E-book Reader    */
+  /* ========================= */
+
+  .book-viewer-mobile {
+    width: 95vw;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+  }
+
+  .ebook-page-container {
+    position: relative;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .ebook-page {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  }
+
+  /* Page scrollbar */
+  .ebook-page > div::-webkit-scrollbar {
+    width: 2px;
+  }
+  .ebook-page > div::-webkit-scrollbar-thumb {
+    background: rgba(244, 63, 94, 0.15);
+    border-radius: 2px;
+  }
+
+  /* Slide animations */
+  @keyframes ebookSlideLeft {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    40% {
+      opacity: 0.4;
+      transform: translateX(-40%);
+    }
+    60% {
+      opacity: 0;
+      transform: translateX(30%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes ebookSlideRight {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    40% {
+      opacity: 0.4;
+      transform: translateX(40%);
+    }
+    60% {
+      opacity: 0;
+      transform: translateX(-30%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .ebook-slide-left {
+    animation: ebookSlideLeft 0.4s ease-out;
+  }
+
+  .ebook-slide-right {
+    animation: ebookSlideRight 0.4s ease-out;
   }
 }
 
