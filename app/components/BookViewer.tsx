@@ -32,11 +32,6 @@ const SPREADS: PageSpread[] = [
     ),
     right: (
       <div className="flex flex-col items-center justify-center h-full px-6 sm:px-10 text-center">
-        <p className="text-base sm:text-lg md:text-xl font-elegant text-rose-800/80 leading-relaxed mb-8">
-          I wrote a little something about that day.
-          <br />
-          <span className="italic text-rose-500">It&apos;s a free-verse.</span>
-        </p>
         <div className="w-16 h-px bg-pink-300 mx-auto mb-8" />
         <p className="text-sm sm:text-base md:text-lg font-serif text-rose-400 leading-relaxed">
           Throughout this week, leading up to Valentine&apos;s Day, each day
@@ -69,6 +64,9 @@ const SPREADS: PageSpread[] = [
     ),
     right: (
       <div className="flex flex-col justify-center h-full px-6 sm:px-10">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-serif text-rose-600 italic mb-6">
+          Spring's Promise
+        </h3>
         <p className="text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-relaxed mb-6 italic">
           The month of April feels like a dive into the unknown, a pleasant
           surprise that starts with an unexpected encounter.
@@ -90,6 +88,9 @@ const SPREADS: PageSpread[] = [
     unlockDate: "2026-02-09",
     left: (
       <div className="flex flex-col justify-center h-full px-6 sm:px-10">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-serif text-rose-600 italic mb-6">
+          Day Zero
+        </h3>
         <p className="text-base sm:text-lg md:text-xl font-elegant text-rose-700 leading-relaxed mb-4">
           You&apos;re here!
         </p>

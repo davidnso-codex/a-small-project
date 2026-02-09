@@ -1,8 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import BookViewer from "./components/BookViewer";
+
+const SPLASH_IMAGES = ["/main.JPG", "/main_2.jpg", "/hands.JPG"];
 
 export default function Home() {
   const [showDedication, setShowDedication] = useState(false);
@@ -12,6 +14,13 @@ export default function Home() {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [showBook, setShowBook] = useState(false);
   const [hydrated, setHydrated] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set([0]));
+
+  const handleImageLoad = useCallback((index: number) => {
+    setLoadedImages((prev) => new Set(prev).add(index));
+    if (index === 0) setImageLoaded(true);
+  }, []);
 
   // On mount, check localStorage for a previous "yes"
   useEffect(() => {
@@ -41,6 +50,15 @@ export default function Home() {
     }
   }, [showDedication]);
 
+  // Cycle through background images every 5 seconds
+  useEffect(() => {
+    if (showBook || showResponse) return; // Stop cycling once answered
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % SPLASH_IMAGES.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [showBook, showResponse]);
+
   const handleYes = () => {
     setAnswer("yes");
     setShowResponse(true);
@@ -55,17 +73,25 @@ export default function Home() {
 
   return (
     <main className="relative h-screen w-screen overflow-hidden bg-black">
-      {/* Full-screen splash image */}
+      {/* Full-screen splash images with crossfade */}
       <div className="absolute inset-0 splash-zoom">
-        <Image
-          src="/main.JPG"
-          alt="Us"
-          fill
-          className="object-cover"
-          priority
-          onLoad={() => setImageLoaded(true)}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+        {SPLASH_IMAGES.map((src, i) => (
+          <div
+            key={src}
+            className="absolute inset-0 transition-opacity duration-[1500ms] ease-in-out"
+            style={{ opacity: i === currentImageIndex ? 1 : 0 }}
+          >
+            <Image
+              src={src}
+              alt="Us"
+              fill
+              className="object-cover"
+              priority={i === 0}
+              onLoad={() => handleImageLoad(i)}
+            />
+          </div>
+        ))}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 z-10" />
       </div>
 
       {/* ---- Dedication + Question ---- */}
