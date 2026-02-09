@@ -116,16 +116,27 @@ export default function Home() {
           <div className="text-center px-6 response-reveal">
             {answer === "yes" ? (
               <>
-                <div className="text-7xl md:text-8xl mb-6 animate-bounce">✨</div>
-                <h1 className="text-5xl sm:text-6xl md:text-8xl font-elegant mb-6 text-white tracking-wider drop-shadow-lg">
-                  Yay! 🎉
+                {/* Blooming flower */}
+                <div className="flower-container flower-bloom-done mb-4">
+                  <div className="flower-stem" />
+                  <div className="flower-leaf flower-leaf-left" />
+                  <div className="flower-leaf flower-leaf-right" />
+                  <div className="flower-petal flower-petal-1" />
+                  <div className="flower-petal flower-petal-2" />
+                  <div className="flower-petal flower-petal-3" />
+                  <div className="flower-petal flower-petal-4" />
+                  <div className="flower-petal flower-petal-5" />
+                  <div className="flower-petal flower-petal-6" />
+                  <div className="flower-petal flower-petal-7" />
+                  <div className="flower-petal flower-petal-8" />
+                  <div className="flower-center" />
+                </div>
+                <h1 className="text-5xl sm:text-6xl md:text-8xl font-elegant mb-4 text-white tracking-wider drop-shadow-lg">
+                  Yay!
                 </h1>
-                <p className="text-2xl sm:text-3xl md:text-5xl font-serif text-white/90 mb-6 drop-shadow-lg">
+                <p className="text-2xl sm:text-3xl md:text-5xl font-serif text-white/90 drop-shadow-lg">
                   I have something special for you...
                 </p>
-                <div className="mt-6 text-5xl md:text-6xl hearts-cascade">
-                  ✨ 💫 🌟 ⭐ ✨
-                </div>
               </>
             ) : (
               <>
