@@ -322,15 +322,19 @@ const SPREADS: PageSpread[] = [
         </h2>
         <div className="w-12 h-px bg-pink-300 mb-6" />
         <p className="text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-relaxed italic">
-          Coming soon...
+          Just to put a smile on your face to start the day!
         </p>
       </div>
     ),
     right: (
       <div className="flex flex-col items-center justify-center h-full px-6 sm:px-10 text-center">
         <div className="text-4xl mb-4">✨</div>
-        <p className="text-sm sm:text-base md:text-lg font-serif text-rose-400">
-          More to come...
+         <p className="text-sm sm:text-base md:text-lg font-serif text-rose-400">
+          I just want to say that you are the best, most amazing, most caring, sweetest, most beautiful woman in the world.
+          <br/>
+          I love you so much and I 
+          am sooo lucky to have you in my life.
+          
         </p>
       </div>
     ),
