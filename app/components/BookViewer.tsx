@@ -78,7 +78,7 @@ const SPREADS: PageSpread[] = [
           The month of April feels like a dive into the unknown, a pleasant
           surprise that starts with an unexpected encounter.
         </p>
-        
+
         <div className="w-12 h-px bg-pink-300 my-6" />
       </div>
     ),
@@ -150,15 +150,35 @@ const SPREADS: PageSpread[] = [
         </h2>
         <div className="w-12 h-px bg-pink-300 mb-6" />
         <p className="text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-relaxed italic">
-          Coming soon...
+          As the month of May begins, distance takes root but stops nothing.
+          This month is full warmth with restraint as the words we exchange cause the space between us to feel like 10 miles rather than 1000.
         </p>
       </div>
     ),
     right: (
-      <div className="flex flex-col items-center justify-center h-full px-6 sm:px-10 text-center">
-        <div className="text-4xl mb-4">✨</div>
-        <p className="text-sm sm:text-base md:text-lg font-serif text-rose-400">
-          More to come...
+      <div className="flex flex-col justify-center h-full px-6 sm:px-10">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-serif text-rose-600 italic mb-6">
+          A First Date
+        </h3>
+        <p className="text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-loose mb-4">
+          Every conversation we&apos;ve had
+          <br />
+          across a thousand miles,
+          <br />
+          we&apos;ll continue today.
+          <br />
+          No buffering, no delay.
+        </p>
+        <p className="text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-loose">
+          Today I&apos;ll see you and feel you.
+          <br />
+          It almost feels rehearsed—
+          <br />
+          Like we&apos;ve already practiced this.
+          <br />
+          But not flawless, just honest.
+          <br />
+          It's such a treat to learn you.
         </p>
       </div>
     ),
@@ -177,15 +197,42 @@ const SPREADS: PageSpread[] = [
         </h2>
         <div className="w-12 h-px bg-pink-300 mb-6" />
         <p className="text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-relaxed italic">
-          Coming soon...
+          Summer’s Start- <br />
+          A season of brightness that cannot be ignored. I know I like you, that much is undeniable, and I can’t wait to see you again.
         </p>
       </div>
     ),
     right: (
-      <div className="flex flex-col items-center justify-center h-full px-6 sm:px-10 text-center">
-        <div className="text-4xl mb-4">✨</div>
-        <p className="text-sm sm:text-base md:text-lg font-serif text-rose-400">
-          More to come...
+      <div className="flex flex-col justify-center h-full px-6 sm:px-10">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-serif text-rose-600 italic mb-6">
+          Room
+        </h3>
+        <p className="text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-loose">
+          June has taught me something.
+          <br />
+          Some people don’t leave your mind—
+          <br />
+          They take up residence.
+          <br />
+          And I saved a room just for you.
+          <br />
+        </p>
+        <h3 className="text-lg sm:text-xl md:text-2xl font-serif text-rose-600 italic mb-1 mt-6">
+          Gravity
+        </h3>
+        <p className="text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-loose">
+          <br />
+          I’ve seen you once,
+          <br />
+          and I can’t wait to see you again.
+          <br />
+          Not impatience. It's more of a longing.
+          <br />
+          It's a force, or a pull.
+          <br />
+          More like gravity
+          <br />
+          That draws me to you.
         </p>
       </div>
     ),
@@ -204,21 +251,65 @@ const SPREADS: PageSpread[] = [
         </h2>
         <div className="w-12 h-px bg-pink-300 mb-6" />
         <p className="text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-relaxed italic">
-          Coming soon...
+          Today is for the explorer in both of us. The traveler that just wants to escape every now and then.
+          <br />
+          The part that wants to see the world and experience new things, but also wants to share those things with someone special.
         </p>
       </div>
     ),
     right: (
-      <div className="flex flex-col items-center justify-center h-full px-6 sm:px-10 text-center">
-        <div className="text-4xl mb-4">✨</div>
-        <p className="text-sm sm:text-base md:text-lg font-serif text-rose-400">
-          More to come...
-        </p>
+      <div className="flex flex-col md:flex-row items-center justify-center h-full px-4 sm:px-6 gap-4 md:gap-6">
+        {/* Polaroid photos */}
+        <div className="flex gap-3 sm:gap-4 md:contents shrink-0">
+          {[
+            { src: "/vacay/pr_duo.jpg", rotation: "-3deg", caption: "us", mobileOnly: true },
+            { src: "/vacay/pr_beach.jpg", rotation: "2deg", caption: "the view", mobileOnly: true },
+            { src: "/vacay/pr_back.jpg", rotation: "-1.5deg", caption: "her", mobileOnly: false },
+          ].map((photo, i) => (
+            <div
+              key={i}
+              className={`bg-amber-50 p-2 pb-10 sm:p-2.5 sm:pb-12 md:p-2 md:pb-10 shadow-md ${photo.mobileOnly ? "md:hidden" : ""}`}
+              style={{
+                transform: `rotate(${photo.rotation})`,
+                width: "clamp(90px, 25vw, 160px)",
+              }}
+            >
+              <div className="relative w-full aspect-[3/4] overflow-hidden">
+                <img
+                  src={photo.src}
+                  alt={photo.caption}
+                  className="w-full h-full object-cover"
+                  style={{ filter: "saturate(0.85) contrast(1.05) brightness(0.98)" }}
+                />
+              </div>
+              <p className="text-center text-[9px] sm:text-[11px] text-rose-400/70 font-serif italic mt-1.5 sm:mt-2">
+                {photo.caption}
+              </p>
+            </div>
+          ))}
+        </div>
+        {/* Poem */}
+        <div className="text-center md:text-left">
+          <p className="text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-loose">
+            Today I&apos;m thankful for
+            <br />
+            my favorite travel buddy.
+          </p>
+          <p className="text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-loose mt-3">
+            While she&apos;s admiring the sights,
+            <br />
+            scenery and the world.
+          </p>
+          <p className="text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-loose mt-3">
+            I&apos;ll be admiring her.
+          </p>
+          <p className="text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-loose mt-3 italic">
+            I call that balance.
+          </p>
+        </div>
       </div>
     ),
   },
-
-  /* ---- Friday February 13 ---- */
   {
     unlockDate: "2026-02-13",
     left: (
@@ -499,13 +590,12 @@ export default function BookViewer() {
         >
           {/* Page */}
           <div
-            className={`ebook-page ${
-              flipDirection === "next"
-                ? "ebook-slide-left"
-                : flipDirection === "prev"
+            className={`ebook-page ${flipDirection === "next"
+              ? "ebook-slide-left"
+              : flipDirection === "prev"
                 ? "ebook-slide-right"
                 : ""
-            }`}
+              }`}
             style={
               !isFlipping && swipeOffset !== 0
                 ? { transform: `translateX(${swipeOffset * 0.4}px)`, transition: "none" }
@@ -542,11 +632,10 @@ export default function BookViewer() {
             <button
               onClick={goPrevPage}
               disabled={!canGoPrevPage || isFlipping}
-              className={`px-4 py-2 text-xs font-serif rounded-full transition-all duration-300 cursor-pointer ${
-                canGoPrevPage
-                  ? "bg-white/10 hover:bg-white/20 text-white border border-white/20"
-                  : "opacity-0 pointer-events-none"
-              }`}
+              className={`px-4 py-2 text-xs font-serif rounded-full transition-all duration-300 cursor-pointer ${canGoPrevPage
+                ? "bg-white/10 hover:bg-white/20 text-white border border-white/20"
+                : "opacity-0 pointer-events-none"
+                }`}
             >
               ← Prev
             </button>
@@ -557,13 +646,12 @@ export default function BookViewer() {
                 return (
                   <div
                     key={i}
-                    className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                      i === currentPage
-                        ? "bg-white scale-150"
-                        : unlocked
+                    className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${i === currentPage
+                      ? "bg-white scale-150"
+                      : unlocked
                         ? "bg-white/30"
                         : "bg-white/10"
-                    }`}
+                      }`}
                   />
                 );
               })}
@@ -572,11 +660,10 @@ export default function BookViewer() {
             <button
               onClick={goNextPage}
               disabled={!canGoNextPage || isFlipping}
-              className={`px-4 py-2 text-xs font-serif rounded-full transition-all duration-300 cursor-pointer ${
-                canGoNextPage
-                  ? "bg-white/10 hover:bg-white/20 text-white border border-white/20"
-                  : "opacity-0 pointer-events-none"
-              }`}
+              className={`px-4 py-2 text-xs font-serif rounded-full transition-all duration-300 cursor-pointer ${canGoNextPage
+                ? "bg-white/10 hover:bg-white/20 text-white border border-white/20"
+                : "opacity-0 pointer-events-none"
+                }`}
             >
               Next →
             </button>
@@ -607,13 +694,12 @@ export default function BookViewer() {
   return (
     <div className="book-viewer response-reveal">
       <div
-        className={`book-spread ${
-          flipDirection === "next"
-            ? "book-flip-next"
-            : flipDirection === "prev"
+        className={`book-spread ${flipDirection === "next"
+          ? "book-flip-next"
+          : flipDirection === "prev"
             ? "book-flip-prev"
             : ""
-        }`}
+          }`}
       >
         <div className="book-page book-page-left">
           <div className="absolute inset-0 bg-gradient-to-br from-rose-50 to-amber-50/60" />
@@ -639,11 +725,10 @@ export default function BookViewer() {
         <button
           onClick={goPrevSpread}
           disabled={!canGoPrevSpread || isFlipping}
-          className={`px-5 py-2.5 text-sm font-serif rounded-full transition-all duration-300 cursor-pointer ${
-            canGoPrevSpread
-              ? "bg-white/10 hover:bg-white/20 text-white border border-white/20"
-              : "opacity-0 pointer-events-none"
-          }`}
+          className={`px-5 py-2.5 text-sm font-serif rounded-full transition-all duration-300 cursor-pointer ${canGoPrevSpread
+            ? "bg-white/10 hover:bg-white/20 text-white border border-white/20"
+            : "opacity-0 pointer-events-none"
+            }`}
         >
           ← Previous
         </button>
@@ -654,13 +739,12 @@ export default function BookViewer() {
             return (
               <div
                 key={i}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  i === currentSpread
-                    ? "bg-white scale-125"
-                    : unlocked
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${i === currentSpread
+                  ? "bg-white scale-125"
+                  : unlocked
                     ? "bg-white/40"
                     : "bg-white/15"
-                }`}
+                  }`}
               />
             );
           })}
@@ -669,11 +753,10 @@ export default function BookViewer() {
         <button
           onClick={goNextSpread}
           disabled={!canGoNextSpread || isFlipping}
-          className={`px-5 py-2.5 text-sm font-serif rounded-full transition-all duration-300 cursor-pointer ${
-            canGoNextSpread
-              ? "bg-white/10 hover:bg-white/20 text-white border border-white/20"
-              : "opacity-0 pointer-events-none"
-          }`}
+          className={`px-5 py-2.5 text-sm font-serif rounded-full transition-all duration-300 cursor-pointer ${canGoNextSpread
+            ? "bg-white/10 hover:bg-white/20 text-white border border-white/20"
+            : "opacity-0 pointer-events-none"
+            }`}
         >
           Next →
         </button>
