@@ -296,12 +296,12 @@ const SPREADS: PageSpread[] = [
             my favorite travel buddy.
           </p>
           <p className="text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-loose mt-3">
-            While she&apos;s admiring the sights,
+            While You&apos;re admiring the sights,
             <br />
             scenery and the world.
           </p>
           <p className="text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-loose mt-3">
-            I&apos;ll be admiring her.
+            I&apos;ll be admiring you.
           </p>
           <p className="text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-loose mt-3 italic">
             I call that balance.
@@ -322,20 +322,57 @@ const SPREADS: PageSpread[] = [
         </h2>
         <div className="w-12 h-px bg-pink-300 mb-6" />
         <p className="text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-relaxed italic">
-          Just to put a smile on your face to start the day!
+          Today I want to share some things I love about you. Simple things, and small things that make me smile when I think about them.
         </p>
       </div>
     ),
     right: (
-      <div className="flex flex-col items-center justify-center h-full px-6 sm:px-10 text-center">
-        <div className="text-4xl mb-4">✨</div>
-         <p className="text-sm sm:text-base md:text-lg font-serif text-rose-400">
-          I just want to say that you are the best, most amazing, most caring, sweetest, most beautiful woman in the world.
-          <br/>
-          I love you so much and I 
-          am sooo lucky to have you in my life.
-          
-        </p>
+      <div className="flex flex-col justify-center h-full px-6 sm:px-10 overflow-y-auto py-6">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-serif text-rose-600 italic mb-5">
+          A Short List of Things I Love About Bianca
+        </h3>
+        <ul className="space-y-3 text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-relaxed">
+          <li className="flex gap-2">
+            <span className="text-rose-400 shrink-0">—</span>
+            <span>
+              Your joy is contagious. I can&apos;t stay sad when you&apos;re happy and smiling.
+              <br />
+              <span className="italic text-rose-600 ml-4 block mt-1">So of course, I also love your smile.</span>
+            </span>
+          </li>
+          <li className="flex gap-2">
+            <span className="text-rose-400 shrink-0">—</span>
+            <span>Your kind and giving nature.</span>
+          </li>
+          <li className="flex gap-2">
+            <span className="text-rose-400 shrink-0">—</span>
+            <span>Your sense of humor. <small>(you crack me up)</small> </span>
+          </li>
+          <li className="flex gap-2">
+            <span className="text-rose-400 shrink-0">—</span>
+            <span>Your selflessness and generosity with the people you care about. i.e, you show up.</span>
+          </li>
+          <li className="flex gap-2">
+            <span className="text-rose-400 shrink-0">—</span>
+            <span>
+              Your attitude when someone tries to do some nonsense with you or around you. I admire your ability to stand on what you believe in and keep it real. No acting, none of that nonsense.
+              <br />
+              <span className="italic text-rose-600 ml-4 block mt-1">We&apos;ll sum it up as strength of character. It&apos;s hot.</span>
+            </span>
+          </li>
+          <li className="flex gap-2">
+            <span className="text-rose-400 shrink-0">—</span>
+            <span>Your curiosity opens my eyes to new things and perspectives.</span>
+          </li>
+          <li className="flex gap-2">
+            <span className="text-rose-400 shrink-0">—</span>
+            <span>You&apos;re adventurous! Always looking for fun or interesting things to do.</span>
+          </li>
+          <li className="flex gap-2">
+            <span className="text-rose-400 shrink-0">—</span>
+            <span>To me, you personify joy, warmth, softness, love and care. It is amazing</span>
+          </li>
+        </ul>
       </div>
     ),
   },
@@ -356,15 +393,35 @@ const SPREADS: PageSpread[] = [
           Valentine&apos;s Day
         </h3>
         <p className="text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-relaxed italic">
-          The final chapter...
+          We made it!
         </p>
       </div>
     ),
     right: (
-      <div className="flex flex-col items-center justify-center h-full px-6 sm:px-10 text-center">
-        <div className="text-5xl mb-4">✨</div>
-        <p className="text-base sm:text-lg md:text-xl font-serif text-rose-500">
-          Happy Valentine&apos;s Day, Bianca
+      <div className="flex flex-col justify-center h-full px-6 sm:px-10 text-left">
+        <h3 className="text-2xl sm:text-3xl md:text-4xl font-elegant text-rose-700 mb-6">
+          Happy Valentine&apos;s Day, my Darling
+        </h3>
+        <div className="w-16 h-px bg-pink-300 mx-auto mb-6" />
+        <p className="text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-relaxed mb-2">
+          Thank you for making it to the end of our 6 day journey!
+        </p>
+        <p className="text-sm sm:text-base md:text-lg font-elegant text-rose-800/80 leading-relaxed mb-4">
+          You were so patient! 🖐️ <span className="italic text-rose-500">(high five)</span>
+        </p>
+        <div className="w-12 h-px bg-pink-300 mx-auto my-4" />
+        <p className="text-xs sm:text-sm uppercase tracking-widest text-rose-400 mb-4 font-serif">
+          Tonight&apos;s Itinerary
+        </p>
+        <div className="space-y-2 text-sm sm:text-base md:text-lg font-elegant text-rose-800/80">
+          <p><span className="text-rose-500 font-serif">4:00pm</span> — I&apos;ll be on my way to you</p>
+          <p><span className="text-rose-500 font-serif">5:30pm</span> — Reservation at Phillipe Chow</p>
+          <p><span className="text-rose-500 font-serif">7:00pm</span> — Renaissance room</p>
+          <p><span className="text-rose-500 font-serif">10:00pm</span> — Night cap</p>
+        </div>
+        <div className="w-12 h-px bg-pink-300 mx-auto my-5" />
+        <p className="text-base sm:text-lg md:text-xl font-elegant text-rose-700 italic">
+          I&apos;ll see you soon.
         </p>
       </div>
     ),
